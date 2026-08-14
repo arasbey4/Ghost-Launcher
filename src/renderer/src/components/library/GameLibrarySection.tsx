@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { CATEGORIES, LIBRARY_GAMES } from '@/services/api'
+import { GameCover } from '@/components/game-cover/GameCover'
 import './GameLibrarySection.scss'
 
 interface GameLibrarySectionProps {
@@ -65,8 +66,13 @@ export function GameLibrarySection({
         <div className="game-library__grid">
           {games.map((game) => (
             <div className="game-tile" key={game.id}>
-              <div className="game-tile__cover" style={{ background: game.cover }}>
-                <span className="game-tile__name">{game.name}</span>
+              <div className="game-tile__cover">
+                <GameCover
+                  name={game.name}
+                  cover={game.cover}
+                  image={game.image}
+                  video={game.video}
+                />
               </div>
               <div className="game-tile__footer">
                 <span className="game-tile__hours">▶ {game.hours}</span>

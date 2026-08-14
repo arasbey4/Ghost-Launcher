@@ -13,7 +13,11 @@ export function DownloadsWidget(): JSX.Element {
       <div className="widget__downloads">
         {DOWNLOADS.map((dl) => (
           <div className="widget__download" key={dl.id}>
-            <div className="widget__download-icon">{dl.icon}</div>
+            {dl.image ? (
+              <img className="widget__download-thumb" src={dl.image} alt="" loading="lazy" />
+            ) : (
+              <div className="widget__download-icon">{dl.icon}</div>
+            )}
             <div className="widget__download-info">
               <span className="widget__download-name">{dl.name}</span>
               <span className="widget__download-size">

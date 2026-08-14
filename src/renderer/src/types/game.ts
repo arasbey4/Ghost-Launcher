@@ -11,6 +11,8 @@ export interface RecentGame {
   name: string
   time: string
   cover: string
+  image?: string
+  video?: string
 }
 
 export interface SidebarGame {
@@ -19,6 +21,7 @@ export interface SidebarGame {
   icon: string
   online: boolean
   active?: boolean
+  image?: string
 }
 
 export interface LibraryGame {
@@ -28,6 +31,8 @@ export interface LibraryGame {
   favorite: boolean
   category: string
   cover: string
+  image?: string
+  video?: string
 }
 
 export interface DownloadItem {
@@ -37,4 +42,5 @@ export interface DownloadItem {
   total: string
   progress: number
   icon: string
+  image?: string
 }

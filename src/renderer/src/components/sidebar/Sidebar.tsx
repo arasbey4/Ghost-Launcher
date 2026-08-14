@@ -92,7 +92,17 @@ export function Sidebar({ collapsed, onToggleCollapse }: SidebarProps): JSX.Elem
                 className={`sidebar__game${activeGame === game.id ? ' sidebar__game--active' : ''}`}
                 onClick={() => setActiveGame(game.id)}
               >
-                <span className="sidebar__game-icon">{game.icon}</span>
+                {game.image ? (
+                  <img
+                    className="sidebar__game-thumb"
+                    src={game.image}
+                    alt=""
+                    loading="lazy"
+                    draggable={false}
+                  />
+                ) : (
+                  <span className="sidebar__game-icon">{game.icon}</span>
+                )}
                 <span className="sidebar__game-name">{game.name}</span>
                 {game.online && <span className="sidebar__game-dot" />}
               </button>

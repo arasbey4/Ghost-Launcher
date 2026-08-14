@@ -218,6 +218,14 @@
   }
 }
 
+.sidebar__game-thumb {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
 .sidebar__game-icon {
   width: 22px;
   height: 22px;

@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { RECENT_GAMES, STATS } from '@/services/api'
 import { GameLibrarySection } from '@/components/library/GameLibrarySection'
+import { GameCover } from '@/components/game-cover/GameCover'
 import { GhostAIWidget } from '@/components/widgets/GhostAIWidget'
 import { PerformanceWidget } from '@/components/widgets/PerformanceWidget'
 import { DownloadsWidget } from '@/components/widgets/DownloadsWidget'
@@ -47,8 +48,14 @@ export function HomePage(): JSX.Element {
           <div className="home-page__recent-grid">
             {RECENT_GAMES.map((game) => (
               <div className="recent-card" key={game.id}>
-                <div className="recent-card__cover" style={{ background: game.cover }}>
-                  <span className="recent-card__cover-name">{game.name}</span>
+                <div className="recent-card__cover">
+                  <GameCover
+                    name={game.name}
+                    cover={game.cover}
+                    image={game.image}
+                    video={game.video}
+                    showName={false}
+                  />
                 </div>
                 <div className="recent-card__footer">
                   <div className="recent-card__info">

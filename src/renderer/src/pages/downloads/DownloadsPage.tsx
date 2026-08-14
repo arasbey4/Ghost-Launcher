@@ -9,7 +9,11 @@ export function DownloadsPage(): JSX.Element {
       {DOWNLOADS.map((dl) => (
         <div className="download-item" key={dl.id}>
           <div className="download-header">
-            <span className="download-icon">{dl.icon}</span>
+            {dl.image ? (
+              <img className="download-thumb" src={dl.image} alt="" loading="lazy" />
+            ) : (
+              <span className="download-icon">{dl.icon}</span>
+            )}
             <span className="download-name">{dl.name}</span>
             <span className="download-size">
               {dl.downloaded} / {dl.total}
