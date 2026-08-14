@@ -1,50 +1,49 @@
-import { HashRouter, Route, Routes, useLocation } from 'react-router-dom'
-import { Sidebar } from '@/components/sidebar/Sidebar'
+import { HashRouter, Route, Routes } from 'react-router-dom'
+import { useState } from 'react'
 import { Header } from '@/components/header/Header'
-import { useSidebar } from '@/hooks/useSidebar'
+import { Sidebar } from '@/components/sidebar/Sidebar'
+import { PlayerBar } from '@/components/player/PlayerBar'
 import { HomePage } from '@/pages/home/HomePage'
 import { LibraryPage } from '@/pages/library/LibraryPage'
+import { DiscoverPage } from '@/pages/discover/DiscoverPage'
 import { DownloadsPage } from '@/pages/downloads/DownloadsPage'
 import { AIPage } from '@/pages/ai/AIPage'
 import { PerformancePage } from '@/pages/performance/PerformancePage'
-import { BackupsPage } from '@/pages/backups/BackupsPage'
+import { ModsPage } from '@/pages/mods/ModsPage'
+import { CloudPage } from '@/pages/cloud/CloudPage'
 import { SettingsPage } from '@/pages/settings/SettingsPage'
 import './App.scss'
 
-function Layout(): JSX.Element {
-  const { width, collapsed, isResizing, startResize, toggleCollapsed } = useSidebar()
-  const location = useLocation()
+function App(): JSX.Element {
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
 
-  return (
-    <div className="app">
-      <Sidebar
-        width={width}
-        collapsed={collapsed}
-        isResizing={isResizing}
-        onStartResize={startResize}
-      />
-      <div className="app__main">
-        <Header onToggleSidebar={toggleCollapsed} />
-        <main className="app__content" key={location.pathname}>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/library" element={<LibraryPage />} />
-            <Route path="/downloads" element={<DownloadsPage />} />
-            <Route path="/ai" element={<AIPage />} />
-            <Route path="/performance" element={<PerformancePage />} />
-            <Route path="/backups" element={<BackupsPage />} />
-            <Route path="/settings" element={<SettingsPage />} />
-          </Routes>
-        </main>
-      </div>
-    </div>
-  )
-}
-
-export default function App(): JSX.Element {
   return (
     <HashRouter>
-      <Layout />
+      <div className="app">
+        <Header />
+        <div className="app__body">
+          <Sidebar
+            collapsed={sidebarCollapsed}
+            onToggleCollapse={() => setSidebarCollapsed((c) => !c)}
+          />
+          <main className="app__content">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/library" element={<LibraryPage />} />
+              <Route path="/discover" element={<DiscoverPage />} />
+              <Route path="/downloads" element={<DownloadsPage />} />
+              <Route path="/ai" element={<AIPage />} />
+              <Route path="/performance" element={<PerformancePage />} />
+              <Route path="/mods" element={<ModsPage />} />
+              <Route path="/cloud" element={<CloudPage />} />
+              <Route path="/settings" element={<SettingsPage />} />
+            </Routes>
+          </main>
+        </div>
+        <PlayerBar />
+      </div>
     </HashRouter>
   )
 }
+
+export default App

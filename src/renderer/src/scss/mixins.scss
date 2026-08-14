@@ -1,29 +1,28 @@
-@use './variables' as *;
+@use './variables.scss' as *;
+
+@mixin panel {
+  background: $bg-panel;
+  border: 1px solid $border-color;
+  border-radius: 16px;
+}
 
 @mixin glass {
-  background: $ghost-glass;
+  background: $glass-bg;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: $ghost-radius;
+  border: 1px solid $glass-border;
+  border-radius: 16px;
 }
 
-@mixin shimmer {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.04) 25%,
-    rgba(255, 255, 255, 0.1) 50%,
-    rgba(255, 255, 255, 0.04) 75%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 1.4s infinite linear;
-}
+@mixin card-hover {
+  transition:
+    transform $ghost-transition,
+    border-color $ghost-transition,
+    box-shadow $ghost-transition;
 
-@keyframes shimmer {
-  from {
-    background-position: 200% 0;
-  }
-  to {
-    background-position: -200% 0;
+  &:hover {
+    transform: translateY(-3px);
+    border-color: rgba(57, 255, 136, 0.35);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
   }
 }

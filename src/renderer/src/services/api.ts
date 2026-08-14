@@ -1,120 +1,144 @@
-import { Game, DownloadItem } from '@/types/game'
+import { DownloadItem, LibraryGame, RecentGame, SidebarGame, Stat } from '@/types/game'
 
-export const GAMES: Game[] = [
+export const STATS: Stat[] = [
+  { icon: '🎮', label: 'Total Games', value: '128', sub: '+3 this week' },
+  { icon: '🕐', label: 'Playtime', value: '342h', sub: '+12h this week' },
+  { icon: '🏆', label: 'Achievements', value: '2,451', sub: '+86 this week' },
+  { icon: '👻', label: 'Ghost Score', value: '9,850', sub: 'Legendary', legendary: true }
+]
+
+export const RECENT_GAMES: RecentGame[] = [
   {
     id: 'gta-v',
-    title: 'GTA V',
-    cover: 'linear-gradient(135deg, #1b4332 0%, #081c15 100%)',
-    platform: 'steam',
-    sizeGb: 112,
-    lastPlayed: '4 saat önce',
-    installed: true,
-    favorite: true,
-    playable: true
+    name: 'Grand Theft Auto V',
+    time: 'Today',
+    cover: 'linear-gradient(135deg, #14532d 0%, #052e16 55%, #022c22 100%)'
   },
   {
-    id: 'cyberpunk-2077',
-    title: 'Cyberpunk 2077',
-    cover: 'linear-gradient(135deg, #7f1d1d 0%, #1c0a0a 100%)',
-    platform: 'gog',
-    sizeGb: 68,
-    lastPlayed: 'Dün',
-    installed: true,
-    favorite: true,
-    playable: true
+    id: 'minecraft',
+    name: 'Minecraft',
+    time: 'Yesterday',
+    cover: 'linear-gradient(135deg, #3f6212 0%, #1a2e05 60%, #422006 100%)'
   },
+  {
+    id: 'beamng',
+    name: 'BeamNG.drive',
+    time: '2 days ago',
+    cover: 'linear-gradient(135deg, #9a3412 0%, #431407 60%, #1c1917 100%)'
+  },
+  {
+    id: 'cyberpunk',
+    name: 'Cyberpunk 2077',
+    time: '3 days ago',
+    cover: 'linear-gradient(135deg, #eab308 0%, #713f12 55%, #1c1917 100%)'
+  }
+]
+
+export const SIDEBAR_GAMES: SidebarGame[] = [
+  { id: 'gta-v', name: 'Grand Theft Auto V', icon: '🎮', online: true, active: true },
+  { id: 'minecraft', name: 'Minecraft', icon: '🟫', online: true },
+  { id: 'beamng', name: 'BeamNG.drive', icon: '🚗', online: false },
+  { id: 'cyberpunk', name: 'Cyberpunk 2077', icon: '🌆', online: false },
+  { id: 'forza', name: 'Forza Horizon 5', icon: '🏎️', online: false },
+  { id: 'rdr2', name: 'Red Dead Redemption 2', icon: '🤠', online: false },
+  { id: 'gow', name: 'God of War', icon: '⚔️', online: false },
+  { id: 'eafc', name: 'EA FC 24', icon: '⚽', online: false }
+]
+
+export const LIBRARY_GAMES: LibraryGame[] = [
   {
     id: 'elden-ring',
-    title: 'Elden Ring',
-    cover: 'linear-gradient(135deg, #713f12 0%, #1c1408 100%)',
-    platform: 'steam',
-    sizeGb: 60,
-    lastPlayed: '3 gün önce',
-    installed: false,
+    name: 'Elden Ring',
+    hours: '120h',
     favorite: false,
-    playable: false
+    category: 'RPG',
+    cover: 'linear-gradient(135deg, #713f12 0%, #292524 60%, #0c0a09 100%)'
   },
   {
-    id: 'witcher-3',
-    title: 'The Witcher 3',
-    cover: 'linear-gradient(135deg, #1e3a8a 0%, #0a101c 100%)',
-    platform: 'gog',
-    sizeGb: 50,
-    lastPlayed: '1 hafta önce',
-    installed: true,
+    id: 'forza',
+    name: 'Forza Horizon 5',
+    hours: '89h',
     favorite: false,
-    playable: true
+    category: 'Racing',
+    cover: 'linear-gradient(135deg, #b91c1c 0%, #7f1d1d 55%, #1c1917 100%)'
   },
   {
-    id: 'hades-ii',
-    title: 'Hades II',
-    cover: 'linear-gradient(135deg, #581c87 0%, #150822 100%)',
-    platform: 'epic',
-    sizeGb: 22,
-    lastPlayed: '2 hafta önce',
-    installed: true,
+    id: 'rdr2',
+    name: 'Red Dead Redemption 2',
+    hours: '156h',
+    favorite: false,
+    category: 'Action',
+    cover: 'linear-gradient(135deg, #dc2626 0%, #7f1d1d 60%, #450a0a 100%)'
+  },
+  {
+    id: 'gow',
+    name: 'God of War',
+    hours: '60h',
     favorite: true,
-    playable: true
+    category: 'Action',
+    cover: 'linear-gradient(135deg, #44403c 0%, #292524 55%, #0c0a09 100%)'
   },
   {
-    id: 'baldurs-gate-3',
-    title: "Baldur's Gate 3",
-    cover: 'linear-gradient(135deg, #7c2d12 0%, #1c0d08 100%)',
-    platform: 'steam',
-    sizeGb: 122,
-    lastPlayed: '1 ay önce',
-    installed: false,
+    id: 'hogwarts',
+    name: 'Hogwarts Legacy',
+    hours: '46h',
     favorite: false,
-    playable: false
+    category: 'Adventure',
+    cover: 'linear-gradient(135deg, #1e3a8a 0%, #172554 60%, #0c0a09 100%)'
   },
   {
-    id: 'hollow-knight',
-    title: 'Hollow Knight',
-    cover: 'linear-gradient(135deg, #164e63 0%, #081b21 100%)',
-    platform: 'ghost',
-    sizeGb: 9,
-    lastPlayed: '2 ay önce',
-    installed: true,
+    id: 'witcher',
+    name: 'The Witcher 3',
+    hours: '102h',
     favorite: false,
-    playable: true
+    category: 'RPG',
+    cover: 'linear-gradient(135deg, #52525b 0%, #27272a 55%, #09090b 100%)'
   },
   {
-    id: 'stardew-valley',
-    title: 'Stardew Valley',
-    cover: 'linear-gradient(135deg, #14532d 0%, #08160d 100%)',
-    platform: 'ghost',
-    sizeGb: 1,
-    lastPlayed: '3 ay önce',
-    installed: true,
+    id: 'spiderman',
+    name: 'Spider-Man Remastered',
+    hours: '26h',
+    favorite: false,
+    category: 'Action',
+    cover: 'linear-gradient(135deg, #dc2626 0%, #1e3a8a 70%, #172554 100%)'
+  },
+  {
+    id: 'portal2',
+    name: 'Portal 2',
+    hours: '15h',
     favorite: true,
-    playable: true
+    category: 'Simulation',
+    cover: 'linear-gradient(135deg, #0ea5e9 0%, #0c4a6e 55%, #082f49 100%)'
   }
+]
+
+export const CATEGORIES = [
+  'All',
+  'Favorites',
+  'Action',
+  'Adventure',
+  'RPG',
+  'Racing',
+  'Simulation',
+  'Sports',
+  'Indie'
 ]
 
 export const DOWNLOADS: DownloadItem[] = [
   {
     id: 'dl-1',
-    title: 'Cyberpunk 2077',
-    sizeGb: 68,
-    speedMbps: 12,
-    progress: 60,
-    status: 'downloading'
+    name: 'Forza Horizon 5',
+    downloaded: '48.3 GB',
+    total: '110 GB',
+    progress: 44,
+    icon: '🏎️'
   },
-  { id: 'dl-2', title: 'GTA V', sizeGb: 112, speedMbps: 8, progress: 35, status: 'waiting' },
-  { id: 'dl-3', title: 'Elden Ring', sizeGb: 60, speedMbps: 0, progress: 0, status: 'queued' },
   {
-    id: 'dl-4',
-    title: 'Hollow Knight',
-    sizeGb: 9,
-    speedMbps: 0,
-    progress: 100,
-    status: 'completed'
+    id: 'dl-2',
+    name: 'Call of Duty',
+    downloaded: '22.1 GB',
+    total: '95.6 GB',
+    progress: 23,
+    icon: '🔫'
   }
 ]
-
-export const PLATFORM_LABELS: Record<Game['platform'], string> = {
-  steam: 'Steam',
-  epic: 'Epic',
-  gog: 'GOG',
-  ghost: 'Ghost'
-}

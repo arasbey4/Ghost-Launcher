@@ -1,33 +1,40 @@
-@use '@/scss/variables' as *;
+@use '@/scss/variables.scss' as *;
 
 .app {
   display: flex;
+  flex-direction: column;
   height: 100vh;
-  background: $ghost-bg;
+  background: $bg-primary;
+}
 
-  &__main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-  }
+.app__body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
 
-  &__content {
-    flex: 1;
-    overflow-y: auto;
-    padding: 32px;
-    animation: page-fade 0.4s ease;
-  }
+.app__content {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+  background: $bg-primary;
 }
 
 .page {
-  min-height: 100%;
+  padding: 32px 40px;
+  animation: page-fade 0.35s ease;
+}
+
+.page-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 24px;
 }
 
 @keyframes page-fade {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(8px);
   }
   to {
     opacity: 1;

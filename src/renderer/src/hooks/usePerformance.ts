@@ -17,14 +17,14 @@ function jitter(base: number, range: number, min: number, max: number): number {
 }
 
 const INITIAL: PerformanceSnapshot = {
-  cpuUsage: 85,
-  gpuUsage: 72,
-  ramUsage: 55,
-  diskUsage: 90,
-  cpuTemp: 45,
+  cpuUsage: 32,
+  gpuUsage: 68,
+  ramUsage: 45,
+  diskUsage: 74,
+  cpuTemp: 54,
   gpuTemp: 62,
-  ramUsedGb: 12.4,
-  fps: 120
+  ramUsedGb: 14.4,
+  fps: 144
 }
 
 export function usePerformance(intervalMs = 2000): PerformanceSnapshot {

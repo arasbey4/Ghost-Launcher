@@ -1,112 +1,84 @@
 @use '@/scss/variables' as *;
 
 .performance-page {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-
-  &__title {
-    font-size: 20px;
-    font-weight: 700;
+  .performance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin-bottom: 28px;
   }
 
-  &__section-title {
-    font-size: 12px;
-    letter-spacing: 2px;
-    color: $ghost-text-secondary;
-    margin-bottom: 18px;
-  }
-
-  &__system {
+  .performance-card {
+    background: $bg-panel;
+    border: 1px solid $border-color;
+    border-radius: 14px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
-  }
+    gap: 10px;
+    transition:
+      transform $ghost-transition,
+      border-color $ghost-transition;
 
-  &__system-row {
-    display: grid;
-    grid-template-columns: 260px 1fr 50px;
-    align-items: center;
-    gap: 16px;
-    font-size: 13px;
-    color: $ghost-text-secondary;
-
-    strong {
-      color: $ghost-text-primary;
-    }
-
-    @media (max-width: 900px) {
-      grid-template-columns: 1fr;
-      gap: 6px;
+    &:hover {
+      transform: translateY(-2px);
+      border-color: rgba(57, 255, 136, 0.3);
     }
   }
 
-  &__system-value {
-    text-align: right;
-    color: $ghost-text-primary;
-    font-weight: 600;
+  .performance-card__label {
+    font-size: 12px;
+    color: $text-secondary;
+    letter-spacing: 1px;
   }
 
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-
-    @media (max-width: 1100px) {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  &__fps {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-    margin-bottom: 16px;
-  }
-
-  &__fps-value {
-    font-size: 42px;
+  .performance-card__value {
+    font-size: 32px;
     font-weight: 800;
-    color: $ghost-green;
-    text-shadow: 0 0 24px $ghost-green-glow;
+    color: $accent-green;
+    line-height: 1;
   }
 
-  &__fps-unit {
-    font-size: 14px;
-    color: $ghost-text-secondary;
-  }
-
-  &__temps {
-    display: flex;
-    gap: 32px;
-  }
-
-  &__temp {
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__temp-value {
-    font-size: 28px;
-    font-weight: 700;
-  }
-
-  &__temp-label {
-    font-size: 12px;
-    color: $ghost-text-secondary;
-  }
-
-  &__usage {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+  .performance-card__bar {
+    height: 4px;
+    border-radius: 2px;
+    background: $bg-secondary;
+    overflow: hidden;
 
     div {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      font-size: 12px;
-      color: $ghost-text-secondary;
+      height: 100%;
+      background: linear-gradient(90deg, $accent-green, $accent-blue);
+      border-radius: 2px;
+      transition: width 0.6s ease;
+    }
+  }
+
+  .performance-details {
+    background: $bg-panel;
+    border: 1px solid $border-color;
+    border-radius: 14px;
+    padding: 8px 20px;
+    max-width: 560px;
+  }
+
+  .performance-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    span:first-child {
+      color: $text-secondary;
+    }
+
+    span:last-child {
+      font-weight: 600;
     }
   }
 }

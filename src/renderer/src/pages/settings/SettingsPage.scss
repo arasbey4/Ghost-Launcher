@@ -1,129 +1,99 @@
 @use '@/scss/variables' as *;
 
 .settings-page {
-  display: flex;
-  gap: 24px;
-  align-items: flex-start;
+  max-width: 720px;
 
-  &__categories {
-    width: 180px;
-    min-width: 180px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  &__category {
-    text-align: left;
-    background: none;
-    border: 1px solid transparent;
-    border-radius: 10px;
-    padding: 10px 14px;
-    color: $ghost-text-secondary;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all $ghost-transition;
-
-    &:hover {
-      background: rgba(255, 255, 255, 0.08);
-      color: $ghost-text-primary;
-    }
-
-    &--active {
-      background: rgba(57, 255, 136, 0.1);
-      border-color: rgba(57, 255, 136, 0.2);
-      color: $ghost-green;
-    }
-  }
-
-  &__content {
-    flex: 1;
+  .settings-section {
+    background: $bg-panel;
+    border: 1px solid $border-color;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 18px;
 
     h2 {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 20px;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 12px;
     }
   }
 
-  &__fields {
+  .settings-row {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 480px;
-
-    label {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      font-size: 13px;
-      color: $ghost-text-secondary;
-    }
-
-    select,
-    input[type='number'],
-    input[type='password'],
-    input[type='text'] {
-      background: $ghost-panel;
-      border: 1px solid $ghost-border;
-      border-radius: 10px;
-      padding: 10px 14px;
-      color: $ghost-text-primary;
-      font-size: 13px;
-      font-family: inherit;
-      outline: none;
-      transition: border-color $ghost-transition;
-
-      &:focus {
-        border-color: rgba(57, 255, 136, 0.3);
-      }
-    }
-
-    select option {
-      background: #111;
-    }
-
-    input[type='range'] {
-      accent-color: $ghost-green;
-    }
-
-    input[type='checkbox'] {
-      accent-color: $ghost-green;
-      width: 18px;
-      height: 18px;
-      cursor: pointer;
-    }
-  }
-
-  &__toggle {
-    flex-direction: row !important;
     align-items: center;
     justify-content: space-between;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    select {
+      background: $bg-card;
+      border: 1px solid $border-color;
+      border-radius: 8px;
+      color: $text-primary;
+      padding: 8px 12px;
+      font-size: 13px;
+      outline: none;
+      cursor: pointer;
+
+      &:hover {
+        border-color: rgba(57, 255, 136, 0.35);
+      }
+    }
   }
 
-  &__paths {
+  .settings-row__text {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 2px;
+  }
 
-    code {
-      background: $ghost-panel;
-      border: 1px solid $ghost-border;
-      border-radius: 8px;
-      padding: 8px 12px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      color: $ghost-text-primary;
+  .settings-row__label {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .settings-row__desc {
+    font-size: 12px;
+    color: $text-secondary;
+  }
+
+  .settings-toggle {
+    width: 44px;
+    height: 24px;
+    border-radius: 12px;
+    background: $bg-card;
+    border: 1px solid $border-color;
+    position: relative;
+    flex-shrink: 0;
+    transition: background $ghost-transition;
+
+    &--on {
+      background: rgba(57, 255, 136, 0.25);
+      border-color: rgba(57, 255, 136, 0.5);
+
+      .settings-toggle__knob {
+        left: 22px;
+        background: $accent-green;
+        box-shadow: 0 0 8px $ghost-green-glow;
+      }
     }
   }
 
-  &__info {
-    font-size: 14px;
-    color: $ghost-text-secondary;
-    line-height: 1.6;
-
-    strong {
-      color: $ghost-text-primary;
-    }
+  .settings-toggle__knob {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: $text-secondary;
+    transition:
+      left $ghost-transition,
+      background $ghost-transition;
   }
 }
