@@ -1,0 +1,201 @@
+@use '@/scss/variables' as *;
+
+.ai-page {
+  height: 100%;
+  display: flex;
+
+  &__chat {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 820px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    border-bottom: 1px solid $ghost-border;
+
+    h2 {
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+
+  &__header-actions {
+    display: flex;
+    gap: 8px;
+
+    button {
+      background: none;
+      border: none;
+      font-size: 15px;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 8px;
+      transition: background $ghost-transition;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.08);
+      }
+    }
+  }
+
+  &__messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__message {
+    max-width: 75%;
+    padding: 12px 16px;
+    border-radius: 14px;
+    font-size: 14px;
+    line-height: 1.6;
+    animation: message-in 0.3s ease;
+
+    &--ghost {
+      align-self: flex-start;
+      background: rgba(57, 255, 136, 0.06);
+      border: 1px solid rgba(57, 255, 136, 0.15);
+
+      .ai-page__message-author {
+        color: $ghost-green;
+      }
+    }
+
+    &--user {
+      align-self: flex-end;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid $ghost-border;
+
+      .ai-page__message-author {
+        color: $ghost-text-secondary;
+      }
+    }
+
+    p {
+      color: $ghost-text-primary;
+    }
+  }
+
+  &__message-author {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  &__typing span {
+    animation: blink 1.2s infinite;
+
+    &:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+  }
+
+  &__quick {
+    display: flex;
+    gap: 8px;
+    padding: 0 24px 12px;
+    flex-wrap: wrap;
+
+    button {
+      background: $ghost-panel;
+      border: 1px solid $ghost-border;
+      color: $ghost-text-secondary;
+      border-radius: 16px;
+      padding: 6px 14px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all $ghost-transition;
+
+      &:hover {
+        color: $ghost-green;
+        border-color: rgba(57, 255, 136, 0.3);
+      }
+    }
+  }
+
+  &__input {
+    display: flex;
+    gap: 10px;
+    padding: 16px 24px;
+    border-top: 1px solid $ghost-border;
+
+    input {
+      flex: 1;
+      background: $ghost-panel;
+      border: 1px solid transparent;
+      border-radius: 20px;
+      padding: 10px 18px;
+      color: $ghost-text-primary;
+      font-size: 13px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color $ghost-transition;
+
+      &:focus {
+        border-color: rgba(57, 255, 136, 0.3);
+      }
+
+      &::placeholder {
+        color: $ghost-text-secondary;
+      }
+    }
+
+    button {
+      background: $ghost-green;
+      color: $ghost-bg;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 15px;
+      cursor: pointer;
+      box-shadow: 0 0 20px $ghost-green-glow;
+      transition: transform $ghost-transition;
+
+      &:hover {
+        transform: scale(1.08);
+      }
+    }
+  }
+}
+
+@keyframes message-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+}

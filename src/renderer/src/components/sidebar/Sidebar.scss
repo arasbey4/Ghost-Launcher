@@ -1,0 +1,131 @@
+@use '@/scss/variables' as *;
+
+.sidebar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: $ghost-panel;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid $ghost-border;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  &--resizing {
+    transition: none;
+  }
+
+  &--collapsed {
+    border-right: none;
+  }
+
+  &__logo {
+    padding: 24px 20px;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: $ghost-text-primary;
+    white-space: nowrap;
+  }
+
+  &__logo-g {
+    color: $ghost-green;
+    text-shadow: 0 0 16px $ghost-green-glow;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0 12px;
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  &__nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    color: $ghost-text-secondary;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all $ghost-transition;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: $ghost-text-primary;
+    }
+
+    &--active {
+      background: rgba(57, 255, 136, 0.1);
+      border-color: rgba(57, 255, 136, 0.2);
+      color: $ghost-green;
+    }
+  }
+
+  &__nav-icon {
+    font-size: 18px;
+    width: 22px;
+    text-align: center;
+  }
+
+  &__profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    border-top: 1px solid $ghost-border;
+    white-space: nowrap;
+  }
+
+  &__avatar {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 50%;
+    background: $ghost-green;
+    color: $ghost-bg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 16px;
+  }
+
+  &__profile-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__username {
+    color: $ghost-text-primary;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  &__status {
+    color: $ghost-text-secondary;
+    font-size: 12px;
+  }
+
+  &__resize {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5px;
+    height: 100%;
+    cursor: col-resize;
+    z-index: 10;
+
+    &:hover {
+      background: rgba(57, 255, 136, 0.3);
+    }
+  }
+}

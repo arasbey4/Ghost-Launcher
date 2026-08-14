@@ -1,0 +1,84 @@
+@use '@/scss/variables' as *;
+
+.downloads-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 2fr 0.8fr 0.8fr 2fr 1.2fr 1fr;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 8px;
+    font-size: 13px;
+    color: $ghost-text-secondary;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &--head {
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: $ghost-text-secondary;
+      border-bottom: 1px solid $ghost-border;
+    }
+  }
+
+  &__title {
+    color: $ghost-text-primary;
+    font-weight: 600;
+  }
+
+  &__progress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    em {
+      font-style: normal;
+      min-width: 36px;
+      text-align: right;
+    }
+  }
+
+  &__status {
+    &--downloading {
+      color: $ghost-green;
+    }
+
+    &--completed {
+      color: $ghost-green;
+    }
+
+    &--paused {
+      color: $color-warning;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 6px;
+    justify-content: flex-end;
+  }
+
+  &__empty {
+    text-align: center;
+    color: $ghost-text-secondary;
+    padding: 24px 0;
+    font-size: 13px;
+  }
+}

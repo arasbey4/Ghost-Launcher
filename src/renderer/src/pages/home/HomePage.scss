@@ -1,0 +1,87 @@
+@use '@/scss/variables' as *;
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  &__welcome {
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: $ghost-text-primary;
+    }
+
+    p {
+      font-size: 14px;
+      color: $ghost-text-secondary;
+      margin-top: 4px;
+    }
+  }
+
+  &__name {
+    color: $ghost-green;
+  }
+
+  &__section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+
+    h2 {
+      font-size: 18px;
+      color: $ghost-text-primary;
+      font-weight: 600;
+    }
+  }
+
+  &__see-all {
+    color: $ghost-text-secondary;
+    font-size: 13px;
+    text-decoration: none;
+    transition: color $ghost-transition;
+
+    &:hover {
+      color: $ghost-green;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 8px 4px 16px;
+  }
+
+  &__perf-title {
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: $ghost-text-secondary;
+    border-bottom: 1px solid $ghost-border;
+    padding-bottom: 10px;
+    margin-bottom: 18px;
+  }
+
+  &__perf-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__perf-metric {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13px;
+    color: $ghost-text-secondary;
+
+    strong {
+      color: $ghost-text-primary;
+    }
+  }
+}

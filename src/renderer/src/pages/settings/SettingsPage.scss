@@ -1,0 +1,129 @@
+@use '@/scss/variables' as *;
+
+.settings-page {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+
+  &__categories {
+    width: 180px;
+    min-width: 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__category {
+    text-align: left;
+    background: none;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 10px 14px;
+    color: $ghost-text-secondary;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all $ghost-transition;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: $ghost-text-primary;
+    }
+
+    &--active {
+      background: rgba(57, 255, 136, 0.1);
+      border-color: rgba(57, 255, 136, 0.2);
+      color: $ghost-green;
+    }
+  }
+
+  &__content {
+    flex: 1;
+
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 480px;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 13px;
+      color: $ghost-text-secondary;
+    }
+
+    select,
+    input[type='number'],
+    input[type='password'],
+    input[type='text'] {
+      background: $ghost-panel;
+      border: 1px solid $ghost-border;
+      border-radius: 10px;
+      padding: 10px 14px;
+      color: $ghost-text-primary;
+      font-size: 13px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color $ghost-transition;
+
+      &:focus {
+        border-color: rgba(57, 255, 136, 0.3);
+      }
+    }
+
+    select option {
+      background: #111;
+    }
+
+    input[type='range'] {
+      accent-color: $ghost-green;
+    }
+
+    input[type='checkbox'] {
+      accent-color: $ghost-green;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+  }
+
+  &__toggle {
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__paths {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    code {
+      background: $ghost-panel;
+      border: 1px solid $ghost-border;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: $ghost-text-primary;
+    }
+  }
+
+  &__info {
+    font-size: 14px;
+    color: $ghost-text-secondary;
+    line-height: 1.6;
+
+    strong {
+      color: $ghost-text-primary;
+    }
+  }
+}

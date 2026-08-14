@@ -1,0 +1,59 @@
+@use '@/scss/variables' as *;
+
+.ghost-btn {
+  border: 1px solid transparent;
+  border-radius: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all $ghost-transition;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  &--md {
+    padding: 8px 20px;
+    font-size: 13px;
+  }
+
+  &--sm {
+    padding: 5px 12px;
+    font-size: 12px;
+  }
+
+  &--primary {
+    background: $ghost-green;
+    color: $ghost-bg;
+    box-shadow: 0 0 20px $ghost-green-glow;
+
+    &:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 28px $ghost-green-glow;
+    }
+  }
+
+  &--ghost {
+    background: $ghost-panel;
+    color: $ghost-text-primary;
+    border-color: $ghost-border;
+
+    &:hover {
+      background: $ghost-card-hover;
+      border-color: rgba(57, 255, 136, 0.3);
+    }
+  }
+
+  &--danger {
+    background: rgba(248, 113, 113, 0.12);
+    color: $color-danger;
+    border-color: rgba(248, 113, 113, 0.3);
+
+    &:hover {
+      background: rgba(248, 113, 113, 0.2);
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
