@@ -1,0 +1,216 @@
+@use '@/scss/variables' as *;
+
+.widget {
+  background: $bg-panel;
+  border: 1px solid $border-color;
+  border-radius: 16px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.widget__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.widget__title {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.widget__chip {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: $accent-purple;
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  border-radius: 8px;
+  padding: 2px 8px;
+}
+
+.widget__ai-tip {
+  display: flex;
+  gap: 10px;
+  background: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: 12px;
+  padding: 12px;
+
+  p {
+    font-size: 12px;
+    line-height: 1.5;
+    color: $text-secondary;
+  }
+}
+
+.widget__ai-icon {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(57, 255, 136, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.widget__btn {
+  height: 36px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  background: rgba(57, 255, 136, 0.1);
+  border: 1px solid rgba(57, 255, 136, 0.35);
+  color: $accent-green;
+  transition:
+    background $ghost-transition,
+    box-shadow $ghost-transition;
+
+  &:hover {
+    background: rgba(57, 255, 136, 0.2);
+    box-shadow: 0 0 14px rgba(57, 255, 136, 0.15);
+  }
+
+  &--ghost {
+    background: transparent;
+    border-color: $border-color;
+    color: $text-secondary;
+
+    &:hover {
+      color: $text-primary;
+      background: $glass-bg;
+      box-shadow: none;
+    }
+  }
+}
+
+.widget__fps {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 4px;
+}
+
+.widget__fps-label {
+  font-size: 12px;
+  color: $text-secondary;
+  grid-column: 1 / -1;
+}
+
+.widget__fps-value {
+  font-size: 34px;
+  font-weight: 800;
+  color: $accent-green;
+  line-height: 1;
+}
+
+.widget__spark {
+  width: 110px;
+  height: 28px;
+}
+
+.widget__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.widget__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.widget__row-label {
+  color: $text-secondary;
+}
+
+.widget__row-value {
+  font-weight: 600;
+}
+
+.widget__downloads {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.widget__download {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.widget__download-thumb {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.widget__download-icon {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: $bg-card;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+
+.widget__download-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.widget__download-name {
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.widget__download-size {
+  font-size: 10px;
+  color: $text-muted;
+}
+
+.widget__download-bar {
+  height: 3px;
+  border-radius: 2px;
+  background: $bg-secondary;
+  overflow: hidden;
+  margin-top: 2px;
+
+  div {
+    height: 100%;
+    background: $accent-green;
+    border-radius: 2px;
+    transition: width 0.5s ease;
+  }
+}
+
+.widget__download-percent {
+  font-size: 11px;
+  font-weight: 700;
+  color: $accent-green;
+}

@@ -1,0 +1,28 @@
+@use './variables.scss' as *;
+
+@mixin panel {
+  background: $bg-panel;
+  border: 1px solid $border-color;
+  border-radius: 16px;
+}
+
+@mixin glass {
+  background: $glass-bg;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid $glass-border;
+  border-radius: 16px;
+}
+
+@mixin card-hover {
+  transition:
+    transform $ghost-transition,
+    border-color $ghost-transition,
+    box-shadow $ghost-transition;
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: rgba(57, 255, 136, 0.35);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  }
+}

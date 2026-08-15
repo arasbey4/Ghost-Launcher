@@ -1,0 +1,168 @@
+@use '@/scss/variables' as *;
+
+.player {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: 72px;
+  padding: 0 24px;
+  background: $bg-secondary;
+  border-top: 1px solid $border-color;
+  flex-shrink: 0;
+
+  input[type='range'] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    border-radius: 2px;
+    background: $bg-card;
+    cursor: pointer;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: $accent-green;
+      box-shadow: 0 0 8px $ghost-green-glow;
+    }
+  }
+}
+
+.player__track {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 220px;
+  flex-shrink: 0;
+}
+
+.player__art {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, $accent-purple, #312e81);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.player__meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+  min-width: 0;
+}
+
+.player__title {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.player__artist {
+  font-size: 11px;
+  color: $text-secondary;
+}
+
+.player__center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.player__controls {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  button {
+    font-size: 14px;
+    color: $text-secondary;
+    transition: color $ghost-transition;
+
+    &:hover {
+      color: $text-primary;
+    }
+  }
+}
+
+.player__play {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: $accent-green;
+  color: #04140b !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  box-shadow: 0 0 12px $ghost-green-glow;
+  transition: transform $ghost-transition;
+
+  &:hover {
+    transform: scale(1.08);
+  }
+}
+
+.player__timeline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 560px;
+
+  input {
+    flex: 1;
+  }
+}
+
+.player__time {
+  font-size: 11px;
+  color: $text-muted;
+  white-space: nowrap;
+}
+
+.player__right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 200px;
+  flex-shrink: 0;
+  justify-content: flex-end;
+
+  input {
+    width: 90px;
+  }
+
+  button {
+    font-size: 14px;
+    color: $text-secondary;
+
+    &:hover {
+      color: $text-primary;
+    }
+  }
+}
+
+.player__volume-icon {
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .player__track {
+    width: 150px;
+  }
+
+  .player__right {
+    width: 130px;
+
+    input {
+      width: 60px;
+    }
+  }
+}

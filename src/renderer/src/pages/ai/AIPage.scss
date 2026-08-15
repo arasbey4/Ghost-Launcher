@@ -1,0 +1,111 @@
+@use '@/scss/variables' as *;
+@use '@/scss/mixins' as *;
+
+.ai-page {
+  max-width: 720px;
+
+  .glass {
+    @include glass;
+  }
+
+  .ai-tip {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .ai-tip__icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: rgba(57, 255, 136, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+
+  .ai-tip__body {
+    flex: 1;
+
+    p {
+      color: $text-secondary;
+      font-size: 13px;
+      line-height: 1.5;
+      margin-top: 4px;
+    }
+  }
+
+  .ai-tip__title {
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .ai-tip__btn {
+    padding: 9px 18px;
+    border-radius: 10px;
+    background: rgba(57, 255, 136, 0.1);
+    border: 1px solid rgba(57, 255, 136, 0.35);
+    color: $accent-green;
+    font-size: 13px;
+    font-weight: 600;
+
+    &:hover {
+      background: rgba(57, 255, 136, 0.2);
+    }
+  }
+
+  .ai-card {
+    padding: 20px;
+  }
+
+  .ai-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .ai-art {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, $accent-purple, #312e81);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+  }
+
+  .ai-info {
+    flex: 1;
+  }
+
+  .ai-title {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .ai-artist {
+    font-size: 13px;
+    color: $text-secondary;
+    margin-top: 2px;
+  }
+
+  .ai-play-btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: $accent-green;
+    color: #04140b;
+    font-size: 13px;
+    font-weight: 700;
+    box-shadow: 0 0 14px $ghost-green-glow;
+    transition: transform $ghost-transition;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}

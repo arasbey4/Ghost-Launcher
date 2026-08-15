@@ -1,0 +1,43 @@
+@use '@/scss/variables.scss' as *;
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: $bg-primary;
+}
+
+.app__body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.app__content {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+  background: $bg-primary;
+}
+
+.page {
+  padding: 32px 40px;
+  animation: page-fade 0.35s ease;
+}
+
+.page-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+@keyframes page-fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

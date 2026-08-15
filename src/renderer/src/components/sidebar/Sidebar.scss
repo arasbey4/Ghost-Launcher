@@ -1,0 +1,272 @@
+@use '@/scss/variables' as *;
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  flex-shrink: 0;
+  background: $bg-secondary;
+  border-right: 1px solid $border-color;
+  padding: 24px 16px 12px;
+  overflow-y: auto;
+  transition: width $ghost-transition;
+
+  &--collapsed {
+    width: 68px;
+    padding: 24px 10px 12px;
+    align-items: center;
+  }
+}
+
+.sidebar__profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: $bg-panel;
+  border: 1px solid $border-color;
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 20px;
+}
+
+.sidebar__avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #333, #111);
+  border: 2px solid rgba(57, 255, 136, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: $accent-green;
+}
+
+.sidebar__profile-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sidebar__profile-name {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.sidebar__profile-level {
+  font-size: 11px;
+  color: $text-secondary;
+}
+
+.sidebar__xp {
+  height: 4px;
+  border-radius: 2px;
+  background: $bg-secondary;
+  overflow: hidden;
+  margin-top: 2px;
+}
+
+.sidebar__xp-fill {
+  height: 100%;
+  background: $accent-green;
+  border-radius: 2px;
+  box-shadow: 0 0 8px $ghost-green-glow;
+}
+
+.sidebar__edit {
+  font-size: 11px;
+  opacity: 0.5;
+  align-self: flex-start;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: $text-secondary;
+  font-size: 14px;
+  transition:
+    background $ghost-transition,
+    color $ghost-transition;
+
+  &:hover {
+    background: $glass-bg;
+    color: $text-primary;
+  }
+
+  &--active {
+    background: rgba(57, 255, 136, 0.1);
+    color: $accent-green;
+    font-weight: 600;
+  }
+
+  &--separated {
+    margin-top: 10px;
+    border-top: 1px solid $border-color;
+    border-radius: 0 0 10px 10px;
+    padding-top: 14px;
+  }
+}
+
+.sidebar__item-icon {
+  font-size: 15px;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.sidebar__item-label {
+  flex: 1;
+  white-space: nowrap;
+}
+
+.sidebar__badge {
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 2px 7px;
+
+  &--count {
+    background: $accent-green;
+    color: #04140b;
+  }
+
+  &--new {
+    background: rgba(57, 255, 136, 0.15);
+    color: $accent-green;
+    border: 1px solid rgba(57, 255, 136, 0.4);
+  }
+}
+
+.sidebar__games {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid $border-color;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.sidebar__games-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: $text-muted;
+  padding: 0 12px 8px;
+}
+
+.sidebar__games-actions {
+  display: flex;
+  gap: 8px;
+
+  button {
+    font-size: 11px;
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.sidebar__games-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sidebar__game {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  color: $text-secondary;
+  font-size: 13px;
+  text-align: left;
+  transition:
+    background $ghost-transition,
+    color $ghost-transition;
+
+  &:hover {
+    background: $glass-bg;
+    color: $text-primary;
+  }
+
+  &--active {
+    background: rgba(57, 255, 136, 0.08);
+    color: $text-primary;
+    border-left: 2px solid $accent-green;
+  }
+}
+
+.sidebar__game-thumb {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.sidebar__game-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  background: $bg-card;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.sidebar__game-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sidebar__game-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $accent-green;
+  flex-shrink: 0;
+  box-shadow: 0 0 6px $ghost-green-glow;
+}
+
+.sidebar__collapse {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  margin-top: auto;
+  border-radius: 10px;
+  color: $text-secondary;
+  font-size: 14px;
+
+  &:hover {
+    background: $glass-bg;
+    color: $text-primary;
+  }
+}

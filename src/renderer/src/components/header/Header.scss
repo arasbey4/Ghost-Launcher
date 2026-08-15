@@ -1,0 +1,150 @@
+@use '@/scss/variables' as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: 64px;
+  padding: 0 24px;
+  background: $bg-primary;
+  border-bottom: 1px solid $border-color;
+  flex-shrink: 0;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header__logo-icon {
+  font-size: 24px;
+}
+
+.header__logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  line-height: 1;
+}
+
+.header__logo-sub {
+  font-size: 7px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: $text-secondary;
+  margin-top: 3px;
+}
+
+.header__search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 400px;
+  max-width: 40vw;
+  height: 38px;
+  padding: 0 14px;
+  background: $bg-panel;
+  border: 1px solid $border-color;
+  border-radius: 19px;
+  transition: border-color $ghost-transition;
+
+  &:focus-within {
+    border-color: rgba(57, 255, 136, 0.4);
+  }
+
+  input {
+    flex: 1;
+    font-size: 13px;
+    color: $text-primary;
+
+    &::placeholder {
+      color: $text-muted;
+    }
+  }
+}
+
+.header__search-icon {
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+.header__search-kbd {
+  font-size: 11px;
+  color: $text-muted;
+  border: 1px solid $border-color;
+  border-radius: 6px;
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.header__icon-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: background $ghost-transition;
+
+  &:hover {
+    background: $glass-bg;
+  }
+}
+
+.header__user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 8px;
+  border-radius: 12px;
+
+  &:hover {
+    background: $glass-bg;
+  }
+}
+
+.header__avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $accent-green, #1b7a45);
+  color: #04140b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.header__user-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.header__user-name {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.header__user-status {
+  font-size: 11px;
+  color: $text-secondary;
+}
+
+@media (max-width: 900px) {
+  .header__user-info {
+    display: none;
+  }
+}
